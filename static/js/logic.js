@@ -1,98 +1,167 @@
-var OpenStreetMap_Mapnik = L.tileLayer(
-    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-    {
-      maxZoom: 19,
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+{
+    "station_locator_url": "https://afdc.energy.gov/stations/",
+    "total_results": 14782,
+    "station_counts": {
+    "total": 41858,
+    "fuels": {
+    "BD": {
+    "total": 0
+    },
+    "E85": {
+    "total": 286
+    },
+    "ELEC": {
+    "total": 41572,
+    "stations": {
+    "total": 14496
     }
-  );
-  
-  let map = L.map(document.getElementById("leaflet-map"), {
-    attributionControl: false,
-    gestureHandling: true,
-    zoomSnap: 0.1,
-  })
-    .setView([0, 0], 12)
-    .addLayer(OpenStreetMap_Mapnik);
-  
-  map.on("moveend", () => {
-    let bounds = map.getBounds();
-    bounds =
-      bounds.getNorth() +
-      "," +
-      bounds.getWest() +
-      "," +
-      bounds.getSouth() +
-      "," +
-      bounds.getEast();
-    document.getElementById("leaflet-map-bounds").innerHTML = "bounds: " + bounds;
-  
-    populateMarkers(bounds);
-  });
-  
-  let allMarkers = {};
-  
-  function populateMarkers(bounds) {
-    return fetch(
-      "https://api.waqi.info/map/bounds/?latlng=" + bounds + "&token=" + token()
-    )
-      .then((x) => x.json())
-      .then((stations) => {
-        if (stations.status != "ok") throw stations.reason;
-  
-        stations.data.forEach((station) => {
-          if (allMarkers[station.uid]) map.removeLayer(allMarkers[station.uid]);
-  
-          let iw = 83,
-            ih = 107;
-          let icon = L.icon({
-            iconUrl: "https://waqi.info/mapicon/" + station.aqi + ".30.png",
-            iconSize: [iw / 2, ih / 2],
-            iconAnchor: [iw / 4, ih / 2 - 5],
-          });
-  
-          let marker = L.marker([station.lat, station.lon], {
-            zIndexOffset: station.aqi,
-            title: station.station.name,
-            icon: icon,
-          }).addTo(map);
-  
-          marker.on("click", () => {
-            console.log("click");
-            let popup = L.popup()
-              .setLatLng([station.lat, station.lon])
-              .setContent(station.station.name)
-              .openOn(map);
-  
-            getMarkerAQI(station.uid).then((aqi) => {
-              let details = "";
-              for (specie in aqi.iaqi) {
-                details += "<b>" + specie + "</b>:" + aqi.iaqi[specie].v + " ";
-              }
-              popup.setContent(station.station.name + "<br>" + details);
-            });
-          });
-  
-          allMarkers[station.uid] = marker;
-        });
-  
-        return stations.data.map(
-          (station) => new L.LatLng(station.lat, station.lon)
-        );
-      });
-  }
-  
-  function getMarkerAQI(markerUID) {
-    return fetch(
-      "https://api.waqi.info/feed/@" + markerUID + "/?token=" + token()
-    )
-      .then((x) => x.json())
-      .then((data) => {
-        if (data.status != "ok") throw data.reason;
-        return data.data;
-      });
-  }
-  
-  populateMarkers("39.379436,116.091230,40.235643,116.784382").then((bounds) => {
-    map.fitBounds(bounds, { maxZoom: 12, paddingTopLeft: [0, 40] });
-  });
+    },
+    "HY": {
+    "total": 0
+    },
+    "LNG": {
+    "total": 0
+    },
+    "CNG": {
+    "total": 0
+    },
+    "LPG": {
+    "total": 0
+    }
+    }
+    },
+    "fuel_stations": [
+    {
+    "access_code": "private",
+    "access_days_time": "Fleet use only",
+    "access_detail_code": null,
+    "cards_accepted": null,
+    "date_last_confirmed": "2021-07-14",
+    "expected_date": null,
+    "fuel_type_code": "ELEC",
+    "groups_with_access_code": "Private",
+    "id": 1517,
+    "open_date": "1999-10-15",
+    "owner_type_code": "LG",
+    "status_code": "E",
+    "station_name": "LADWP - Truesdale Center",
+    "station_phone": null,
+    "updated_at": "2022-02-10T19:42:29Z",
+    "facility_type": "UTILITY",
+    "geocode_status": "GPS",
+    "latitude": 34.2483191527193,
+    "longitude": -118.3879713743439,
+    "city": "Sun Valley",
+    "intersection_directions": null,
+    "plus4": null,
+    "state": "CA",
+    "street_address": "11797 Truesdale St",
+    "zip": "91352",
+    "country": "US",
+    "bd_blends": null,
+    "cng_dispenser_num": null,
+    "cng_fill_type_code": null,
+    "cng_psi": null,
+    "cng_renewable_source": null,
+    "cng_total_compression": null,
+    "cng_total_storage": null,
+    "cng_vehicle_class": null,
+    "e85_blender_pump": null,
+    "e85_other_ethanol_blends": null,
+    "ev_connector_types": [
+    "CHADEMO",
+    "J1772",
+    "J1772COMBO"
+    ],
+    "ev_dc_fast_num": 3,
+    "ev_level1_evse_num": null,
+    "ev_level2_evse_num": 39,
+    "ev_network": "Non-Networked",
+    "ev_network_web": null,
+    "ev_other_evse": null,
+    "ev_pricing": null,
+    "ev_renewable_source": null,
+    "hy_is_retail": null,
+    "hy_pressures": null,
+    "hy_standards": null,
+    "hy_status_link": null,
+    "lng_renewable_source": null,
+    "lng_vehicle_class": null,
+    "lpg_primary": null,
+    "lpg_nozzle_types": null,
+    "ng_fill_type_code": null,
+    "ng_psi": null,
+    "ng_vehicle_class": null,
+    "access_days_time_fr": null,
+    "intersection_directions_fr": null,
+    "bd_blends_fr": null,
+    "groups_with_access_code_fr": "Privé",
+    "ev_pricing_fr": null
+    },
+    {
+    "access_code": "private",
+    "access_days_time": null,
+    "access_detail_code": null,
+    "cards_accepted": null,
+    "date_last_confirmed": "2021-07-14",
+    "expected_date": null,
+    "fuel_type_code": "ELEC",
+    "groups_with_access_code": "Private",
+    "id": 1519,
+    "open_date": "2020-02-28",
+    "owner_type_code": "LG",
+    "status_code": "E",
+    "station_name": "LADWP - West LA District Office",
+    "station_phone": null,
+    "updated_at": "2022-02-10T19:42:29Z",
+    "facility_type": "UTILITY",
+    "geocode_status": "200-8",
+    "latitude": 34.052542,
+    "longitude": -118.448504,
+    "city": "Los Angeles",
+    "intersection_directions": null,
+    "plus4": null,
+    "state": "CA",
+    "street_address": "1394 S Sepulveda Blvd",
+    "zip": "90024",
+    "country": "US",
+    "bd_blends": null,
+    "cng_dispenser_num": null,
+    "cng_fill_type_code": null,
+    "cng_psi": null,
+    "cng_renewable_source": null,
+    "cng_total_compression": null,
+    "cng_total_storage": null,
+    "cng_vehicle_class": null,
+    "e85_blender_pump": null,
+    "e85_other_ethanol_blends": null,
+    "ev_connector_types": [
+    "J1772"
+    ],
+    "ev_dc_fast_num": null,
+    "ev_level1_evse_num": null,
+    "ev_level2_evse_num": 4,
+    "ev_network": "Non-Networked",
+    "ev_network_web": null,
+    "ev_other_evse": null,
+    "ev_pricing": "Free",
+    "ev_renewable_source": null,
+    "hy_is_retail": null,
+    "hy_pressures": null,
+    "hy_standards": null,
+    "hy_status_link": null,
+    "lng_renewable_source": null,
+    "lng_vehicle_class": null,
+    "lpg_primary": null,
+    "lpg_nozzle_types": null,
+    "ng_fill_type_code": null,
+    "ng_psi": null,
+    "ng_vehicle_class": null,
+    "access_days_time_fr": null,
+    "intersection_directions_fr": null,
+    "bd_blends_fr": null,
+    "groups_with_access_code_fr": "Privé",
+    "ev_pricing_fr": null
+    }
+    ]
+    }
