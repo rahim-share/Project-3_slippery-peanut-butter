@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact of Electonric Vehicles on LA and NewYork</title>
+    <!-- MATERIAL ICONS FROM GOOGLE-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet">
+    <!-- OUR STYLE SHEET-->
+    <link rel="stylesheet" href ="../static/css/style.css">
+    <script>src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"</script>
+    <script src="https://cdn.plot.ly/plotly-2.9.0.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="/image.png" alt="">
+                    <h2>SPB</h2>
+                </div>
+                <div class="close" id="close-button">
+                    <span class="material-icons-round">close</span>  
+                </div>
+            </div>
+
+
+            <div class="sidebar">
+                <a href="#">
+                    <span class="material-icons-round">space_dashboard</span>
+                    <h3>Dashboard</h3>                        
+                </a>
+                
+                <a href="https://ovidiu1982.github.io/test/">
+                    <span class="material-icons-round">analytics</span>
+                    <h3>Interactive Map</h3>                        
+                </a>
+                    
+                        <a href="#">
+                            <span class="material-icons-round">logout</span>
+                            <h3>Logout</h3>                        
+                        </a>
+            </div>
+        </aside>
+
+        <main>
+            <h1>Dashboard</h1>
+            <div>
+                <div>Please select a state</div>
+                     <select id="selDataset" onchange="optionChanged(this.value)">
+                         <option value="NY">New York</option>
+                         <option value="WA">Washington</option>
+                         <option value="london">Seattle</option>
+                         <option value="brist">Texas</option>
+                     </select>
+             </div>
+             <div id="barchart" style="width:600px;height:250px;"></div>
+             <div id="pie" style="width:100%;max-width:700px"></div>
+
+
+
+            </div>
+        </main>
+    </div>
+    <script src="../static/js/charts.js"></script>
+
+
+
+
+</body>
+</html>
