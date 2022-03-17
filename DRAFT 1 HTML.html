@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact of Electonric Vehicles on LA and NewYork</title>
+    <!-- MATERIAL ICONS FROM GOOGLE-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet">
+    <!-- OUR STYLE SHEET-->
+    <link rel="stylesheet" href ="./style.css">
+    <script>src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"</script>
+    <link rel="INDEX" href ="./INDEX.js">
+
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="/LOGO.png" alt="">
+                    <h2>SPB</h2>
+                </div>
+                <div class="close" id="close-button">
+                    <span class="material-icons-round">close</span>  
+                </div>
+            </div>
+
+
+            <div class="sidebar">
+                <a href="#">
+                    <span class="material-icons-round">space_dashboard</span>
+                    <h3>Dashboard</h3>                        
+                </a>
+                
+                <a href="#">
+                    <span class="material-icons-round">analytics</span>
+                    <h3>Analytics</h3>                        
+                </a>
+                
+                    <a href="#">
+                        <span class="material-icons-round">summarize</span>
+                        <h3>Reports</h3>                        
+                    </a>
+                    
+                        <a href="#">
+                            <span class="material-icons-round">logout</span>
+                            <h3>Logout</h3>                        
+                        </a>
+            </div>
+        </aside>
+<!--- end side --->
+
+
+
+
+<!--- insights 1 --->
+        <main>
+            <h1>Dashboard</h1>
+
+            <div class="dates">
+                <input type="date">
+            </div>
+
+            <div class="insights">
+                <div class="PieChart">
+                    <span class="material-icons-round">pie_chart</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Pie Chart</h3>
+                            <h1>Market Share Electronic Vehicles</h1> <!--- 31:00 --->
+                        </div>
+                        <div class="progress">
+                            <svg width="100" height="100">
+                                <circle cx="50" cy="50" r="40"/>
+                              </svg>
+                              <div class="number">
+                                  <p>INSERT BREAK DOWN OF MKSHARE HERE</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted"> ENTER date</small>
+                </div>
+
+<!--- insight 2 --->
+
+                <div class="Barchart">
+                    <span class="material-icons-round">bar_chart</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Line Graph</h3>
+                            <h1>xxxxxxx</h1> <!--- 31:00 --->
+                        </div>
+                        <div class="progress">
+                            <svg viewBox="0 0 500 100" class="chart">
+                                <polyline
+                                   fill="none"
+                                   stroke="#0074d9"
+                                   stroke-width="3"
+                                   points="
+                                     0,120
+                                     20,60
+                                     40,80
+                                     60,20"/>
+                              </svg>
+                              <div class="number">
+                                  <p>11%</p>
+                              </div>
+                        </div>
+                    </div>
+                    <small class="text-muted"> ENTER PERIOD</small>
+                </div>
+            
+<!--- insight 3 --->
+                
+                <div class="linegraph">
+                    <span class="material-icons-round">query_stats</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Bar Chart</h3>
+                            <h1>xxxxxxx</h1> <!--- 31:00 --->
+                        </div>
+                        <div class="progress">
+                            <svg class="chart" width="420" height="150" aria-labelledby="title desc" role="img">
+                                <title id="title">A bar chart showing information</title>
+                                <desc id="desc">4 Tesla; 8 General Motors; 15 BMW; 16 Mercades; 23 Volkswagen</desc>
+                                <g class="bar">
+                                  <rect width="40" height="19"></rect>
+                                  <text x="45" y="9.5" dy=".35em">Tesla</text>
+                                </g>
+                                <g class="bar">
+                                  <rect width="80" height="19" y="20" color="white"></rect>
+                                  <text x="85" y="28" dy=".35em">General Motors</text>
+                                </g>
+                                <g class="bar">
+                                  <rect width="150" height="19" y="40"></rect>
+                                  <text x="150" y="48" dy=".35em">BMW</text>
+                                </g>
+                                <g class="bar">
+                                  <rect width="160" height="19" y="60"></rect>
+                                  <text x="161" y="68" dy=".35em">Mercades</text>
+                                </g>
+                                <g class="bar">
+                                  <rect width="230" height="19" y="80"></rect>
+                                  <text x="235" y="88" dy=".35em">Volkswagen</text>
+                                </g>
+                              </svg>
+                              <div class="number">
+                                  <p>11%</p>
+                              </div>
+                        </div>
+                    </div>
+                    <small class="text-muted"> ENTER PERIOD</small>
+                </div>
+            </div>
+            <div class="GEOMAP"></div>
+                <h2> Map of EV Charging Stations</h2>
+
+
+
+
+
+
+
+
+                 
+             
+        </main>
+
+        <div class="right">
+            <div class="top">
+                <button id ="menu-btn">
+                    <span class="material-icons-round">menu</span>
+                </button>
+                <div class="theme-toggler">
+                    <span class="material-icons-round">light_mode</span>
+                    <span class="material-icons-round">dark_mode</span>
+                </div>
+
+
+
+
+
+
+
+
+
+                
+                <div>
+                    <div>
+                        <div id="container">
+                            <label class="switch">
+                              <input type="checkbox" onclick="changeMode()">
+                              <span class="slider"></span>
+                            </label>
+                          </div>
+                          <script>
+                            function changeMode() {
+                               var element = document.body;
+                               element.classList.toggle("dark-mode");
+                            }
+                          </script>
+                    </div>
+                </div>
+
+
+
+
+
+                
+
+
+
+
+                <div class="profile">
+                    <div class="info">
+                        <p>Hey, <b>Rahim</b> </p>
+                        <small class="text-muted">Dark Lord Admin</small>
+                    </div>
+                    <div class="profile-pic">
+                        <img src="./my profile pic.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <!--End of top-->
+            <div class="recent-activity">
+                <h2>Recent Activity</h2>
+                <div class="activities">
+                    <div class="activity">
+                        <div class="profile-pic">
+                            <img src="./JOE.png" alt="">
+                        </div>
+                    <div class="message">
+                        <p><b>Joseph</b> Hey Rahim, Ive just created the APP.py</p>
+                        <small class="text-muted">1 day ago</small>
+                    </div>
+                    <div class="activity">
+                        <div class="profile-pic">
+                            <img src="./meng.png" alt="">
+                        </div>
+                    <div class="message">
+                        <p><b>Joseph</b> Hey Rahim, Ive just created the JSON Files and the GeoMap</p>
+                        <small class="text-muted">1 day ago</small>
+                    </div>
+
+                    <div class="activity">
+                        <div class="profile-pic">
+                            <img src="./simon.png" alt="">
+                        </div>
+                    <div class="message">
+                        <p><b>Simon</b> Rahim, Ive just created the graphs</p>
+                        <small class="text-muted">10 Minutes ago</small>
+                    </div>
+
+                    <div class="activity">
+                        <div class="profile-pic">
+                            <img src="./OVIE.png" alt="">
+                        </div>
+                    <div class="message">
+                        <p><b>Joseph</b> Hey Rahim, Ive just created the SQL DataBase</p>
+                        <small class="text-muted">1 day ago</small>
+                    </div>
+                    
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
